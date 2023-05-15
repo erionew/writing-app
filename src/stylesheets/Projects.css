@@ -1,0 +1,32 @@
+.glass-effect{
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
+    border: 1px solid #fff
+}
+
+.container--projects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.project-thumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 3em;
+    border-radius: 5px;
+    font-size: 0.85em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-folder{
+    margin-bottom: 1rem;
+    color: #cad2d6;
+    font-size: 2em;
+}

@@ -2,74 +2,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 body{
+    position: relative;
+    z-index: 10;
+    height: 100vh;
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    background-image: url(images/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: ;
     color: #494949;
+    background-image: url('images/bg.jpg');
+    background-size: cover;
 }
-.h1--page-title{
-    padding: 1em 0;
-    background-color: rgba(255, 255, 255, 0.452);
-    border-bottom: 1px solid #fff;
-    font-size: 1em;
-    font-weight: 300;
-    text-align: center;
-    letter-spacing: 1px;
+
+.App{
+    max-width: 1100px;
+    padding: 3em;
+    margin: auto;
+}
+
+.page__header{
+    display: flex;
+    margin-bottom: 3em;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+h1{
+    font-size: 1.15em;
+    font-weight: 500;
 }
 
 button{
     position: relative;
     top: 0;
     margin-left: 2em;
-    padding: 0.75em 1.25em;
+    padding: 0.5em .75em;
     border-radius: 3px;
-    border: none;
+    border: 1px solid #494949;
+    background: none;
     cursor: pointer;
     transition: all 100ms linear;
-}
-
-button:hover{
-    top: -4px;
-    -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.2);
-}
-
-.button--blue{
-    border: 1px solid #b9e5dc;
-    background-image: linear-gradient(to top, #89e1cf, #7acbbe, #6db5ac, #60a09a, #548b88);
-    color: #ffffff;
-}
-
-.button--blue::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 13px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.button--white{
-    border: 1px solid #ffffff;
-    background-image: linear-gradient(to top, #f2f2f2, #e3e3e3, #d5d5d5, #c6c6c6, #b8b8b8);
-    color: #6a6a6a;
-}
-
-.button--white::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 13px;
-    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .container--page{
@@ -81,3 +54,4 @@ button:hover{
     bottom: 4em;
     right: 4em;
 }
+
