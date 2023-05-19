@@ -1,13 +1,20 @@
 .glass-effect{
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.20);
     backdrop-filter: blur(4px);
-    border: 1px solid #fff
+    border: 1px solid rgba(255, 255, 255, 0.668);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.075);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.075);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.075);
 }
 
-.container--projects{
+.glass-effect:hover{
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.container--flex{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    
 }
 
 .project-thumbnail{
@@ -18,7 +25,7 @@
     padding: 2em;
     width: 150px;
     height: 150px;
-    margin-bottom: 3em;
+    margin: 1em;
     border-radius: 5px;
     font-size: 0.85em;
     text-align: center;
@@ -27,6 +34,6 @@
 
 .fa-folder{
     margin-bottom: 1rem;
-    color: #cad2d6;
+    color: #ffffff;
     font-size: 2em;
 }

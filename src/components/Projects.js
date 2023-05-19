@@ -6,9 +6,9 @@ export default function AllProjects() {
     <div container--page>
         <header className='page__header'>
           <h1 className='h1--page-title'>Projects</h1>
-          <button className='button--blue'>New Project +</button>
+          <button className='button--white'>New Project +</button>
         </header>
-        <div className='container--projects'>
+        <div className='container--flex'>
           <ProjectThumbnail name = 'Untitled' />
           <ProjectThumbnail name = 'Longer name' />
           <ProjectThumbnail name = 'Untitled' />

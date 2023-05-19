@@ -1,11 +1,14 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import AllProjects from './components/AllProjects';
+import Projects from './components/Projects';
 
 function App() {
   return (
     <div className="App">
-      <AllProjects />
-      <div className='background'></div>
+      <Routes>
+        <Route path='/' element={<Projects />}></Route>
+
+      </Routes>
     </div>
   );
 }
