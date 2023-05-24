@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
+  
 }
 body{
     position: relative;
@@ -33,6 +33,10 @@ body::before{
     margin: auto;
 }
 
+h1{
+    font-size: 1.15em;
+}
+
 .page__header{
     display: flex;
     margin-bottom: 3em;
@@ -44,14 +48,11 @@ body::before{
     border-bottom-style: solid;
 }
 
-h1{
-    font-size: 1.15em;
+.page__header > h1{
+    font-weight: 300;
 }
 
 button{
-    position: relative;
-    top: 0;
-    margin-left: 2em;
     padding: 0.5em .75em;
     border: none;
     border-radius: 3px;
@@ -75,15 +76,25 @@ button{
     box-shadow: 0px 0px 35px 0px rgba(255, 255, 255, 0.9);
 }
 
-.container--page{
-    position: relative;
-    height: 80vh;
+.button--red{
+    background-color: rgba(255, 126, 126, 0.5);
+    border: 1px solid rgba(255, 209, 209, 0.7);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(254, 148, 148, 0.40);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(254, 148, 148, 0.40);
+    box-shadow: 0px 0px 20px 0px rgba(254, 148, 148, 0.40);
+    transition: all 300ms ease-in;
+    color: #fff;
 }
 
-.container--buttons{
-    position: absolute;
-    bottom: 4em;
-    right: 4em;
+.button--red:hover{
+    background-color: rgba(255, 92, 92, 0.5);
+    -webkit-box-shadow: 0px 0px 35px 0px rgba(254, 148, 148, 0.8);
+    -moz-box-shadow: 0px 0px 35px 0px rgba(254, 148, 148, 0.8);
+    box-shadow: 0px 0px 35px 0px rgba(254, 148, 148, 0.8);
+}
+
+.container--page{
+    height: 80vh;
 }
 
 .flex{

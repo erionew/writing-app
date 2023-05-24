@@ -3,7 +3,7 @@
     width: 80%;
 }
 .ql-snow{
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .container--doc-details{
@@ -26,4 +26,22 @@
     height: 200px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.word-count{
+    font-size: 2em;
+}
+
+.doc-details__buttons {
+    justify-content: space-evenly;
+}
+
+.doc-details__buttons > button{
+    width: 100%;
+    padding: 0.75em 1em;
+}
+
+.doc-details__buttons > button:first-child{
+    margin-right: 1em;
 }

@@ -16,11 +16,12 @@ export default function NewDocument() {
             <div className='container--doc-details'>
                 <h3 className='doc-details__title glass-effect'>Document Title</h3>
                 <div className='doc-details__word-count glass-effect flex'>
-                    <p className='word-count'>30</p>
+                    <p className='word-count'>3,000</p>
+                    <p>words</p>
                 </div>
-                <div className='doc--details__buttons'>
-                    <button>Save</button>
-                    <button>Delete</button>
+                <div className='doc-details__buttons flex'>
+                    <button className='button--white'>Save</button>
+                    <button className='button--red'>Delete</button>
                 </div>
             </div>
         </div>

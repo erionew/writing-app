@@ -1,19 +1,28 @@
 import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Projects from './components/Projects';
 import NewDocument from './components/NewDocument';
+import Documents from './components/Documents';
 
 function App() {
-  fetch('https://e-inkling.herokuapp.com/')
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    fetch('https://e-inkling.herokuapp.com/')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setProjects(data))
+  }, [])
+  
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Projects />}></Route>
         <Route path='/editor' element={<NewDocument />}></Route>
-
+        {projects.map((project) => {
+          return <Route path={'/projects/' + project.id} element={<Documents projectName={project.title} />}></Route>
+        })}
       </Routes>
     </div>
   );

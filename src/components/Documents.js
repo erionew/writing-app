@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentThumbnail from './DocumentThumbnail'
 
 
-export default function AllDocuments({projectName}) {
+export default function Documents({projectName}) {
   return (
     <div container--page>
         <header className='page__header'>
