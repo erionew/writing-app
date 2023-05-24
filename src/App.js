@@ -21,7 +21,7 @@ function App() {
         <Route path='/' element={<Projects />}></Route>
         <Route path='/editor' element={<NewDocument />}></Route>
         {projects.map((project) => {
-          return <Route path={'/projects/' + project.id} element={<Documents projectName={project.title} />}></Route>
+          return <Route path={'/projects/' + project.id} element={<Documents projectName={project.name} />}></Route>
         })}
       </Routes>
     </div>

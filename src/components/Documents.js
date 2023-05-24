@@ -1,5 +1,6 @@
 import React from 'react'
 import DocumentThumbnail from './DocumentThumbnail'
+import { Link } from 'react-router-dom'
 
 
 export default function Documents({projectName}) {
