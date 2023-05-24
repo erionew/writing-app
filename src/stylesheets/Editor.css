@@ -1,0 +1,29 @@
+.quill{
+    height: 100%;
+    width: 80%;
+}
+.ql-snow{
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.container--doc-details{
+    height: 100%;
+    width: 30%;
+    margin-left: 1em;
+    text-align: center;
+}
+
+.container--doc-details > div{
+    margin-bottom: 1em;
+}
+
+.doc-details__title{
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.doc-details__word-count{
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
