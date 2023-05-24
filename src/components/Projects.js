@@ -4,15 +4,9 @@ import NewProject from './NewProject'
 import '../stylesheets/Projects.css'
 import { Link } from 'react-router-dom'
 
-export default function Projects() {
+export default function Projects({projectData}) {
 
-  const [projects, setProjects] = useState([])
   const [showPopup, setShowPopup] = useState(false)
-
-  const buttonHandler = (e) => {
-    e.preventDefault()
-    showPopup ? setShowPopup(false) : setShowPopup(true)
-  }
 
   const openPopup = (e) => {
     e.preventDefault()
@@ -23,12 +17,6 @@ export default function Projects() {
     e.preventDefault()
     setShowPopup(false)
   }
-
-  useEffect(() => {
-    fetch('https://e-inkling.herokuapp.com/')
-    .then(res => res.json())
-    .then(data => setProjects(data))
-  }, [])
   
   return (
     <div className='container--page'>
@@ -37,7 +25,7 @@ export default function Projects() {
           <button className='button--white' onClick={openPopup}>New Project +</button>
         </header>
         <div className='container--flex'>
-          {projects.map(project =>{
+          {projectData.map(project =>{
             return(
               <Link to={'/projects/'+project.id}>
                 <ProjectThumbnail name={project.name}/>

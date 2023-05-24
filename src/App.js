@@ -13,12 +13,11 @@ function App() {
     .then(res => res.json())
     .then(data => setProjects(data))
   }, [])
-  
 
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Projects />}></Route>
+        <Route path='/' element={<Projects projectData={projects} />}></Route>
         <Route path='/editor' element={<NewDocument />}></Route>
         {projects.map((project) => {
           return <Route path={'/projects/' + project.id} element={<Documents projectName={project.name} />}></Route>
