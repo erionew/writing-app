@@ -7,10 +7,24 @@ export const postProject = (inputName) => {
   })
 }
 
+
+export const postDocument = (inputTitle, projectId, inputContent) => {
+  fetch('https://e-inkling.herokuapp.com/documents/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: inputTitle, project: projectId, content:inputContent})
+})
+}
 export const putDocument = (inputTitle, projectId, inputContent, documentId) => {
   fetch('https://e-inkling.herokuapp.com/documents/'+ documentId, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ title: inputTitle, project: projectId, content: inputContent})
 })
+}
+
+export const deleteDocument = (documentId) => {
+  fetch('https://e-inkling.herokuapp.com/documents/'+ documentId, {
+    method: 'DELETE',
+  })
 }

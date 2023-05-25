@@ -3,6 +3,7 @@
 }
 .rdw-editor-main{
     min-height: 55vh;
+    max-height: 500px;
     max-width: 650px;
     padding: 1em 2em;
     background-color: rgba(255, 255, 255, 0.75);
@@ -41,6 +42,10 @@
     height: fit-content;
     margin-bottom: 1em;
     font-size: 1em;
+}
+
+.doc-details__title::placeholder{
+    color: #252525;
 }
 
 .doc-details__word-count{
@@ -84,9 +89,13 @@
     }
 
     .rdw-editor-main, .rdw-editor-toolbar, .container--doc-details{
-       min-width: 100%;
+       min-width: 95%;
        max-width: none;
        margin: auto;
+    }
+
+    .rdw-editor-main{
+        max-height: 700px;
     }
 
     .container--doc-details{

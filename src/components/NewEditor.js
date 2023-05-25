@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { EditorState, convertToRaw, convertFromRaw} from 'draft-js'
+import { EditorState, convertToRaw} from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg';
 import '../stylesheets/Editor.css'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { deleteDocument, putDocument } from './CRUDrequests';
+import { postDocument } from './CRUDrequests';
 
-export default function EditEditor({documentId, docTitle, documentData, projectId}) {
+export default function NewEditor({docTitle, projectId}) {
     
 
     const [documentTitle, setDocumentTitle] = useState(docTitle)
-    const [editorState, setEditorState] = useState(() => EditorState.createWithContent(convertFromRaw(JSON.parse(documentData.content))))
+    const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
     const [convertedContent, setConvertedContent] = useState(null);
     const [wordCount, setWordCount] = useState(0)
     
@@ -20,7 +20,7 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
         let content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         setConvertedContent(content);
        
-        putDocument(documentTitle, projectId, convertedContent, documentId)
+        postDocument(documentTitle, projectId, convertedContent)
     }
 
     const getWordCount = (editorState) => {
@@ -34,7 +34,6 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
     useEffect(() => {
         setWordCount(getWordCount(editorState))
     }, [editorState])
-
 
     return (
         <div className='container--page'>
@@ -51,7 +50,7 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
                     </div>
                     <div className='doc-details__buttons flex'>
                         <button onClick={(e) => {handleFormSubmit(e)}} type='submit' className='button--white'>Save</button>
-                        <button onClick={() => deleteDocument(documentId)} className='button--red'>Delete</button>
+                        
                     </div>
                     <Link className ='glass-effect doc-details__back-link' to={`../projects/${projectId}`}><i class="las la-arrow-left"></i> Back To Project</Link>
                 </div>

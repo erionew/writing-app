@@ -22,7 +22,7 @@ export default function Projects({projectData}) {
     <div className='container--page'>
         <header className='page__header'>
           <h1 className='h1--page-title'>Projects</h1>
-          <button className='button--white' onClick={openPopup}>New Project +</button>
+          <button className='button--white' onClick={openPopup}><i class="las la-plus"></i></button>
         </header>
         <div className='container--flex'>
           {projectData.map(project =>{

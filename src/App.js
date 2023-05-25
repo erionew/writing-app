@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Projects from './components/Projects';
 import EditEditor from './components/EditEditor';
+import NewEditor from './components/NewEditor';
 import Documents from './components/Documents';
 
 function App() {
@@ -26,11 +27,15 @@ function App() {
         <Route path='/' element={<Navigate to='/projects' />}></Route>
         <Route path='projects' element={<Projects projectData={projects} />}></Route>
         {projects.map((project) => {
-          return (<Route key={project.id} path={'/projects/' + project.id} element={<Documents projectName={project.name} projectId={project.id} projectData={projects} documentData={documents} />}></Route>)
+          return (
+            <>
+            <Route key={project.id} path={'/projects/' + project.id} element={<Documents projectName={project.name} projectId={project.id} projectData={projects} documentData={documents} />}></Route>
+            <Route path={`/projects/${project.id}/new/editor`} element={<NewEditor docTitle='Untitled' projectId={project.id}/>}></Route>
+            </>)
         })}
         {documents.map(document => {
-          console.log(document.content)
-          return (<Route path={`/projects/${document.project}/editor`} element={<EditEditor documentId={document.id} docTitle={document.title} documentData={document} projectId={document.project}/>}></Route>)
+          return (<Route path={`/projects/${document.project}/${document.id}/editor`} element={<EditEditor documentId={document.id} docTitle={document.title} documentData={document} projectId={document.project}/>}></Route>)
+          
         })}
       </Routes>
     </div>
