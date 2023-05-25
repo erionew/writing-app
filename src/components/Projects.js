@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState} from 'react'
 import ProjectThumbnail from './ProjectThumbnail'
 import NewProject from './NewProject'
 import '../stylesheets/Projects.css'
@@ -17,7 +17,7 @@ export default function Projects({projectData}) {
     e.preventDefault()
     setShowPopup(false)
   }
-  
+
   return (
     <div className='container--page'>
         <header className='page__header'>
@@ -27,7 +27,7 @@ export default function Projects({projectData}) {
         <div className='container--flex'>
           {projectData.map(project =>{
             return(
-              <Link to={'/projects/'+project.id}>
+              <Link key={project.id} to={'/projects/'+project.id}>
                 <ProjectThumbnail name={project.name}/>
               </Link>
             ) 
