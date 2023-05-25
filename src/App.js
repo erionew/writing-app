@@ -18,9 +18,10 @@ function App() {
     .then(res => res.json())
     .then(data => setDocuments(data))
   }, [])
-  console.log(documents)
+
   return (
     <div className="App">
+      <div className='bg'></div>
       <Routes>
         <Route path='/' element={<Navigate to='/projects' />}></Route>
         <Route path='projects' element={<Projects projectData={projects} />}></Route>
@@ -28,7 +29,8 @@ function App() {
           return (<Route key={project.id} path={'/projects/' + project.id} element={<Documents projectName={project.name} projectId={project.id} projectData={projects} documentData={documents} />}></Route>)
         })}
         {documents.map(document => {
-          return (<Route path={`/projects/${document.project}/editor`} element={<EditEditor documentId={document.id} docTitle={document.title} documentData={documents} projectId={document.project}/>}></Route>)
+          console.log(document.content)
+          return (<Route path={`/projects/${document.project}/editor`} element={<EditEditor documentId={document.id} docTitle={document.title} documentData={document} projectId={document.project}/>}></Route>)
         })}
       </Routes>
     </div>

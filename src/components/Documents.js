@@ -17,6 +17,7 @@ export default function Documents({projectName, projectId, projectData, document
         <div className='container--flex'>
             {documentData.map(document => {
                 for(let i = 0; i < projectData.length; i++){
+                  console.log(document.content)
                   if(projectId === projectData[i].id) {
                     return(
                       <Link to={`/projects/${projectId}/editor`}>
