@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import DocumentThumbnail from './DocumentThumbnail'
 import { Link } from 'react-router-dom'
 import EditProject from './EditProject'
@@ -8,7 +8,7 @@ export default function Documents({projectName, projectId, projectData, document
 
   const [showEditProject, setShowEditProject] = useState(false)
   const [showDeleteProject, setShowDeleteProject] = useState(false)
-
+  
   //functions that handle the popups
   const openEditProject = (e) => {
     e.preventDefault()
@@ -46,7 +46,7 @@ export default function Documents({projectName, projectId, projectData, document
         </header>
         <div className='container--flex'>
           { 
-            //this loops through the document data to find what project it belongs to. I had to rewrite this 10,000 times
+            //this loops through the document data to find what project it belongs to. I had to rewrite this 10,000 times.
             documentData.map(document => {
               for(let i = 0; i < documentData.length; i++){
                 if(projectId === document.project) {

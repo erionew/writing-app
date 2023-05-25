@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { EditorState, convertToRaw, convertFromRaw} from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg';
 import '../stylesheets/Editor.css'
@@ -8,6 +8,7 @@ import { deleteDocument, putDocument } from './CRUDrequests';
 
 export default function EditEditor({documentId, docTitle, documentData, projectId}) {
     
+    const navigate = useNavigate()
 
     const [documentTitle, setDocumentTitle] = useState(docTitle)
     // when the data comes back from the backend, it needs to be converted back to draftjs format so that the format does not get lost
@@ -39,6 +40,10 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
         setWordCount(getWordCount(editorState))
     }, [editorState])
 
+    const handleDelete = () => {
+        navigate(`/projects/${projectId}`)
+        deleteDocument(documentId)
+    }
 
     return (
         <div className='container--page'>
@@ -56,7 +61,7 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
                     </div>
                     <div className='doc-details__buttons flex'>
                         <button onClick={(e) => {handleFormSubmit(e)}} type='submit' className='button--white'>Save</button>
-                        <button onClick={() => deleteDocument(documentId)} className='button--red'>Delete</button>
+                        <button onClick={handleDelete} className='button--red'>Delete</button>
                     </div>
                     <Link className ='glass-effect doc-details__back-link' to={`../projects/${projectId}`}><i class="las la-arrow-left"></i> Back To Project</Link>
                 </div>
