@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import DocumentThumbnail from './DocumentThumbnail'
 import { Link } from 'react-router-dom'
 import EditProject from './EditProject'
+import DeleteProject from './DeleteProject'
 
 export default function Documents({projectName, projectId, projectData, documentData}) {
 
@@ -19,6 +20,16 @@ export default function Documents({projectName, projectId, projectData, document
     setShowEditProject(false)
   }
 
+  const openDeleteProject = (e) => {
+    e.preventDefault()
+    setShowDeleteProject(true)
+  }
+
+  const closeDeleteProject = (e) => {
+    e.preventDefault()
+    setShowDeleteProject(false)
+  }
+
   return (
     <div className='container--page'>
 
@@ -27,10 +38,10 @@ export default function Documents({projectName, projectId, projectData, document
               <Link to='/' className='link'>Projects</Link> &gt;
               <strong>{' '+ projectName}</strong>
             </h1>
-            <div className='container--buttons'>
+            <div className='container--header-buttons flex'>
             <button className='button--white' onClick={openEditProject}><i className="las la-edit"></i></button>
               <Link to={`/projects/${projectId}/new/editor`}><button className='button--white'><i className="las la-plus"></i></button></Link>
-              <button className='button--red'><i className="las la-trash-alt"></i></button>
+              <button className='button--red' onClick={openDeleteProject}><i className="las la-trash-alt"></i></button>
             </div>
         </header>
         <div className='container--flex'>
@@ -49,6 +60,7 @@ export default function Documents({projectName, projectId, projectData, document
         </div>
 
         {showEditProject && <EditProject closeFn={closeEditProject} projectName={projectName} projectId={projectId}/>}
+        {showDeleteProject && <DeleteProject closeFn={closeDeleteProject} projectName={projectName} projectId={projectId}/>}
         
     </div>
   )

@@ -15,6 +15,13 @@ export const putProject = (inputName, projectId) => {
 })
 }
 
+export const deleteProject = (projectId) => {
+  fetch('https://e-inkling.herokuapp.com/projects/'+ projectId, {
+    method: 'DELETE',
+  })
+}
+
+
 export const postDocument = (inputTitle, projectId, inputContent) => {
   fetch('https://e-inkling.herokuapp.com/documents/', {
     method: 'POST',

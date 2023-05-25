@@ -110,11 +110,7 @@
     border-radius: 5px;
 }
 
-.container--buttons{
-    display: flex;
-}
-
-.container--buttons > button{
+.container--header-buttons > button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,4 +118,14 @@
     width: 30px;
     margin: 0 0.75em;
     font-size: 1em;
+}
+.popup > p{
+    margin-top: 3em;
+}
+.container--buttons{
+    justify-content: center;
+    align-items: center;
+}
+.container--buttons > *{
+    margin: 2em 0.5em
 }
