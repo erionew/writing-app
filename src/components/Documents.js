@@ -1,14 +1,23 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import DocumentThumbnail from './DocumentThumbnail'
 import { Link } from 'react-router-dom'
+import EditProject from './EditProject'
 
 export default function Documents({projectName, projectId, projectData, documentData}) {
-  
-  useEffect(() => {
-    fetch('https://e-inkling.herokuapp.com/')
-    .then(res => res.json())
-    .then(data => console.log(data))
-  }, [])
+
+  const [showEditProject, setShowEditProject] = useState(false)
+  const [showDeleteProject, setShowDeleteProject] = useState(false)
+
+
+  const openEditProject = (e) => {
+    e.preventDefault()
+    setShowEditProject(true)
+  }
+
+  const closeEditProject = (e) => {
+    e.preventDefault()
+    setShowEditProject(false)
+  }
 
   return (
     <div className='container--page'>
@@ -19,26 +28,27 @@ export default function Documents({projectName, projectId, projectData, document
               <strong>{' '+ projectName}</strong>
             </h1>
             <div className='container--buttons'>
-            <button className='button--white'><i class="las la-edit"></i></button>
-              <Link to={`/projects/${projectId}/new/editor`}><button className='button--white'><i class="las la-plus"></i></button></Link>
-              <button className='button--red'><i class="las la-trash-alt"></i></button>
+            <button className='button--white' onClick={openEditProject}><i className="las la-edit"></i></button>
+              <Link to={`/projects/${projectId}/new/editor`}><button className='button--white'><i className="las la-plus"></i></button></Link>
+              <button className='button--red'><i className="las la-trash-alt"></i></button>
             </div>
         </header>
         <div className='container--flex'>
-            {documentData.map(document => {
-                for(let i = 0; i < projectData.length; i++){
-                  if(projectId === projectData[i].id) {
-                    return(
-                      <Link key={document.id} to={`/projects/${document.project}/${document.id}/editor`}>
-                        <DocumentThumbnail title={document.title} />
-                      </Link>
-                    )
-                  } else {
-                    return 
-                  }
-                }                
-            })}
+          { 
+            documentData.map(document => {
+              for(let i = 0; i < documentData.length; i++){
+                if(projectId == document.project) {
+                  console.log(document.title)
+                  return (<Link to={`/projects/${document.project}/${document.id}/editor`}>
+                            <DocumentThumbnail title={document.title} />
+                          </Link>) 
+                }
+              }
+            })
+          }
         </div>
+
+        {showEditProject && <EditProject closeFn={closeEditProject} projectName={projectName} projectId={projectId}/>}
         
     </div>
   )

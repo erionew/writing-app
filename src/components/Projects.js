@@ -6,23 +6,23 @@ import { Link } from 'react-router-dom'
 
 export default function Projects({projectData}) {
 
-  const [showPopup, setShowPopup] = useState(false)
+  const [showNewProject, setShowNewProject] = useState(false)
 
-  const openPopup = (e) => {
+  const openNewProject = (e) => {
     e.preventDefault()
-    setShowPopup(true)
+    setShowNewProject(true)
   }
 
-  const closePopup = (e) => {
+  const closeNewProject = (e) => {
     e.preventDefault()
-    setShowPopup(false)
+    setShowNewProject(false)
   }
 
   return (
     <div className='container--page'>
         <header className='page__header'>
           <h1 className='h1--page-title'>Projects</h1>
-          <button className='button--white' onClick={openPopup}><i class="las la-plus"></i></button>
+          <button className='button--white' onClick={openNewProject}><i class="las la-plus"></i></button>
         </header>
         <div className='container--flex'>
           {projectData.map(project =>{
@@ -33,7 +33,7 @@ export default function Projects({projectData}) {
             ) 
           })}
         </div>
-        {showPopup && <NewProject closeFn={closePopup}/>}
+        {showNewProject && <NewProject closeFn={closeNewProject}/>}
     </div>
   )
 }
