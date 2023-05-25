@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/writing-app/static/css/main.e1cd0e8d.css",
+    "main.js": "/writing-app/static/js/main.f3624af6.js",
+    "static/media/bg.jpg": "/writing-app/static/media/bg.9915cbbc5671188406f5.jpg",
+    "index.html": "/writing-app/index.html",
+    "main.e1cd0e8d.css.map": "/writing-app/static/css/main.e1cd0e8d.css.map",
+    "main.f3624af6.js.map": "/writing-app/static/js/main.f3624af6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1cd0e8d.css",
+    "static/js/main.f3624af6.js"
+  ]
+}
