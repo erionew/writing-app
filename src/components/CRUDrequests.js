@@ -1,4 +1,4 @@
-
+//Project requests
 export const postProject = (inputName) => {
     fetch('https://e-inkling.herokuapp.com/', {
       method: 'POST',
@@ -21,7 +21,7 @@ export const deleteProject = (projectId) => {
   })
 }
 
-
+//Document requests
 export const postDocument = (inputTitle, projectId, inputContent) => {
   fetch('https://e-inkling.herokuapp.com/documents/', {
     method: 'POST',

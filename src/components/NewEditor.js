@@ -10,6 +10,8 @@ export default function NewEditor({docTitle, projectId}) {
     
 
     const [documentTitle, setDocumentTitle] = useState(docTitle)
+    //the difference between the edit editor and the new editor is visible in the editorstate. New documents are created empty. 
+    //existing documents are created with content that needs to be converted
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
     const [convertedContent, setConvertedContent] = useState(null);
     const [wordCount, setWordCount] = useState(0)
@@ -25,9 +27,9 @@ export default function NewEditor({docTitle, projectId}) {
 
     const getWordCount = (editorState) => {
         const plainText = editorState.getCurrentContent().getPlainText('');
-        const regex = /(?:\r\n|\r|\n)/g;  // new line, carriage return, line feed
-        const cleanString = plainText.replace(regex, ' ').trim(); // replace above characters w/ space
-        const wordArray = cleanString.match(/\S+/g);  // matches words according to whitespace
+        const regex = /(?:\r\n|\r|\n)/g;  
+        const cleanString = plainText.replace(regex, ' ').trim(); 
+        const wordArray = cleanString.match(/\S+/g);  
         return wordArray ? wordArray.length : 0;
     }
 

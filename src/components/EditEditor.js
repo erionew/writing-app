@@ -10,18 +10,21 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
     
 
     const [documentTitle, setDocumentTitle] = useState(docTitle)
+    // when the data comes back from the backend, it needs to be converted back to draftjs format so that the format does not get lost
     const [editorState, setEditorState] = useState(() => EditorState.createWithContent(convertFromRaw(JSON.parse(documentData.content))))
     const [convertedContent, setConvertedContent] = useState(null);
     const [wordCount, setWordCount] = useState(0)
     
 
     const handleFormSubmit = (e) => {
+        //when the form is submitted, the content from the editor is converted to Raw JSON
         e.preventDefault()
         let content = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         setConvertedContent(content);
-       
+        // put request
         putDocument(documentTitle, projectId, convertedContent, documentId)
     }
+
 
     const getWordCount = (editorState) => {
         const plainText = editorState.getCurrentContent().getPlainText('');
@@ -31,6 +34,7 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
         return wordArray ? wordArray.length : 0;
     }
 
+    //updates word count when the editor is altered
     useEffect(() => {
         setWordCount(getWordCount(editorState))
     }, [editorState])
@@ -39,6 +43,7 @@ export default function EditEditor({documentId, docTitle, documentData, projectI
     return (
         <div className='container--page'>
             <form className='editor__form flex'>
+                {/* setting up the editor */}
                 <Editor 
                     editorState={editorState}
                     onEditorStateChange={setEditorState}

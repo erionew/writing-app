@@ -7,6 +7,7 @@ export default function DeleteProject({closeFn, projectId, projectName}) {
     const navigate = useNavigate()
 
     const handleDelete = () => {
+        //useNavigate  is used to go back to the projects screen when a project is deleted. 
         navigate('/projects')
         deleteProject(projectId)
     }
