@@ -1,14 +1,28 @@
-.quill{
-    height: 100%;
-    width: 80%;
+.rdw-editor-main{
+    height: 70vh;
+    max-width: 750px;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
 }
-.ql-snow{
-    background-color: rgba(255, 255, 255, 0.85);
+
+.rdw-editor-toolbar{
+    max-width: 750px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+}
+
+.rdw-editor-toolbar > div{
+    background: none;
+}
+
+.rdw-option-wrapper{
+    background: none;
 }
 
 .container--doc-details{
     height: 100%;
-    width: 30%;
+    max-width: 300px;
     margin-left: 1em;
     text-align: center;
 }
@@ -19,7 +33,10 @@
 
 .doc-details__title{
     padding: 1em;
+    width: 100%;
+    height: fit-content;
     margin-bottom: 1em;
+    font-size: 1em;
 }
 
 .doc-details__word-count{
